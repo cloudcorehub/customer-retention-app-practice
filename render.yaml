@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: customer-retention-app-CCHub
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+
