@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.DS_Store
+.env
+.idea/
+.vscode/
+.codex-build/
+.codex-finalizer/
+private-presenter-materials/
+presenter-materials/

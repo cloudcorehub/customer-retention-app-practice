@@ -1,0 +1,9 @@
+{
+  "model_version": "1.0.0",
+  "model_type": "Logistic Regression",
+  "framework": "scikit-learn",
+  "framework_version": "1.8.0",
+  "training_accuracy": 0.6987,
+  "dataset": "synthetic customer data",
+  "purpose": "demonstration only"
+}

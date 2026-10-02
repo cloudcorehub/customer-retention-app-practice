@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{APP_NAME}}</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <header class="brand-bar">
+      <div class="brand-lockup" aria-label="Customer retention application">
+        <span class="brand-context">MODEL APPLICATION</span>
+        <span class="brand-name">Customer Retention</span>
+      </div>
+      <span>Local inference demo</span>
+    </header>
+
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MODEL → API → WEB INTERFACE</p>
+        <h1>{{APP_NAME}}</h1>
+        <p class="subtitle">{{APP_SUBTITLE}}</p>
+      </div>
+      <div class="version-pill">App v{{APP_VERSION}}</div>
+    </section>
+
+    <section class="grid">
+      <form id="prediction-form" class="card form-card">
+        <div class="card-heading">
+          <div>
+            <p class="step">LIVE INFERENCE</p>
+            <h2>Customer profile</h2>
+          </div>
+          <span id="model-status" class="status-dot" role="status">● checking model</span>
+        </div>
+
+        <label>Tenure (months)
+          <input id="tenure_months" type="number" min="0" max="72" value="8" required />
+        </label>
+
+        <label>Monthly charges ($)
+          <input id="monthly_charges" type="number" min="10" max="200" step="0.01" value="89.50" required />
+        </label>
+
+        <label>Contract
+          <select id="contract">
+            <option>Month-to-month</option>
+            <option>One year</option>
+            <option>Two year</option>
+          </select>
+        </label>
+
+        <label>Internet service
+          <select id="internet_service">
+            <option>Fiber optic</option>
+            <option>DSL</option>
+            <option>None</option>
+          </select>
+        </label>
+
+        <label>Tech support
+          <select id="tech_support">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </label>
+
+        <label>Payment method
+          <select id="payment_method">
+            <option>Electronic check</option>
+            <option>Credit card</option>
+            <option>Bank transfer</option>
+            <option>Mailed check</option>
+          </select>
+        </label>
+
+        <button type="submit">Predict churn risk</button>
+      </form>
+
+      <section class="card result-card" aria-live="polite" aria-atomic="true">
+        <p class="step">PREDICTION</p>
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">↗</div>
+          <h2>Ready for a prediction</h2>
+          <p>Enter a customer profile and call the model-serving API.</p>
+        </div>
+
+        <div id="result" class="result hidden">
+          <div id="risk-badge" class="risk-badge">High risk</div>
+          <div class="probability-row">
+            <span id="probability" class="probability">0%</span>
+            <span class="probability-label">predicted churn probability</span>
+          </div>
+          <div class="meter"><div id="meter-fill" class="meter-fill"></div></div>
+          <div class="metadata-grid">
+            <div><span>Model</span><strong id="model-type">—</strong></div>
+            <div><span>Model version</span><strong id="model-version">—</strong></div>
+            <div><span>App version</span><strong id="app-version">—</strong></div>
+          </div>
+          <p class="disclaimer">Demonstration only. This synthetic model must not be used for real customer decisions.</p>
+        </div>
+        <p id="error-message" class="error-message hidden" role="alert"></p>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
